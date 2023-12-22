@@ -2,7 +2,7 @@
 close all; clear all; clc;
 
 %% Setting a Working Directory / Adding to Path
-addpath("OneDrive-Personal/Documents/AppliedExpDes/Labs/Lab2_CauseAnalysis/");
+addpath("./data");
 
 %% variables vs. Matrices vs. Structures vs. Tables (not looking at cell arrays but those are fun too)
 A=5;
@@ -17,12 +17,12 @@ mltab = table();
 mltab.alpha = [1;2;3];
 mltab.beta = [4;5;6];
 %% Exporting Data to Excel
-writetable(mltab,'example_in_excel.xlsx');
+writetable(mltab,'./data/example_in_excel.xlsx');
 %% Loading an excel table
-newtab = readtable('example_in_excel.xlsx');
+newtab = readtable('./data/example_in_excel.xlsx');
 %% Creating a Plot
 %   load the data
-nominal = load("OneDrive-Personal/Documents/AppliedExpDes/Labs/Lab2_CauseAnalysis/qube_out_nominal.mat");
+nominal = load("./data/qube_out_nominal.mat");
 
 %%  create figure
 close(figure(1)) %closing so we can iterate
@@ -81,7 +81,7 @@ plot(nominal.yaw(ind,1),nominal.yaw(ind,2), 'ro')
 
 %% Include Qube Command
 close(figure(1)) %closing so we can iterate
-command = load("OneDrive-Personal/Documents/AppliedExpDes/Labs/Lab2_CauseAnalysis/qube_command.mat");
+command = load("./data/qube_command.mat");
 com=command.sig';
 
 pend = nominal.pend(1:30000,:);
